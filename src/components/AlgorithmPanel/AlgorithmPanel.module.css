@@ -1,0 +1,143 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 24px;
+  background: #12122a;
+  border: 1px solid #2a2a50;
+  border-radius: 12px;
+}
+
+.title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+/* Summary */
+.summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background: #0f0f24;
+  border-radius: 8px;
+  border: 1px solid #2a2a50;
+}
+
+.summaryLabel {
+  font-size: 12px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+}
+
+.summaryCount {
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffd700;
+  font-family: 'Courier New', monospace;
+}
+
+/* Complexity grid */
+.complexity {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px 12px;
+  padding: 12px 16px;
+  background: #0f0f24;
+  border-radius: 8px;
+  border: 1px solid #1e1e3a;
+}
+
+.complexityLabel {
+  font-size: 11px;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  align-self: center;
+}
+
+.complexityValue {
+  font-size: 12px;
+  color: #a78bfa;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  align-self: center;
+}
+
+/* Cycle list */
+.cycleList {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.cycleListLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.cycleItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: #0a0a1a;
+  border-radius: 8px;
+  border: 1px solid #1e1e3a;
+}
+
+.cycleIndex {
+  font-size: 11px;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  min-width: 16px;
+}
+
+.cyclePath {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1px;
+}
+
+.cyclePathItem {
+  display: flex;
+  align-items: center;
+  gap: 1px;
+}
+
+.cycleNode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #1e1e42;
+  border: 1.5px solid #4a4a80;
+  font-size: 11px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #e2e8f0;
+}
+
+.cycleNodeStart {
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+.cycleArrow {
+  color: #22c55e;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  padding: 0 1px;
+}
