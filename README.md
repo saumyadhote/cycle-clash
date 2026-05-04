@@ -1,16 +1,66 @@
-# React + Vite
+# Cycle Clash
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Cycle Clash is an interactive visualizer for the Hamiltonian Cycle Problem — watch a backtracking algorithm step-by-step or find cycles yourself.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Problem
+A Hamiltonian Cycle visits every node exactly once and returns to the start.  
+- NP-Complete (Karp, 1972)  
+- No known polynomial-time solution  
+- Solved via exhaustive backtracking  
 
-## React Compiler
+---
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Algorithm
+DFS Backtracking:
+- Commit → move to unvisited node  
+- Explore → recurse  
+- Backtrack → undo and try next  
 
-## Expanding the ESLint configuration
+Deduplication: normalize cycles (rotations + reverse → smallest form)  
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Complexity:  
+- Time: O(n!)  
+- Space: O(n)
+
+---
+
+## Features
+- Watch algorithm (dead ends, cycles)  
+- Step controls (forward/back)  
+- Trace log (decisions and actions)  
+- Live stats (backtracks, cycles)  
+- Play mode (solve manually)  
+- Graphs: Triangle, K4, Pentagon  
+
+---
+
+## Why K4?
+- 4 fully connected nodes  
+- 3 unique cycles  
+- Clear backtracking behavior  
+- ~14s runtime (ideal demo)  
+
+---
+## Live Demo
+👉 [View the Project](https://cycle-clash.vercel.app/)
+---
+## Demo Flow
+1. Watch → K4 → Slow → Play  
+2. Explain: current node, path, dead end, cycle  
+3. Step mode → show commit/explore/backtrack  
+4. Play mode → user solves with validation  
+
+---
+
+## Key Points
+- O(n!) from n × (n-1) × ...  
+- Each cycle counted 2n times (rotations + directions)  
+- NP-Complete; counting is #P-hard  
+- Set used for O(1) visited checks  
+
+---
+
+## Summary
+A visual and interactive way to understand backtracking and Hamiltonian cycles.
