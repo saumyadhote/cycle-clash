@@ -3,8 +3,8 @@
   flex-direction: column;
   gap: 16px;
   padding: 24px;
-  background: #12122a;
-  border: 1px solid #2a2a50;
+  background: #0a1520;
+  border: 1px solid #0e2a3a;
   border-radius: 12px;
 }
 
@@ -24,9 +24,9 @@
   align-items: center;
   justify-content: space-between;
   padding: 12px 16px;
-  background: #0f0f24;
+  background: #04101c;
   border-radius: 8px;
-  border: 1px solid #2a2a50;
+  border: 1px solid #0e2a3a;
 }
 
 .summaryLabel {
@@ -48,9 +48,9 @@
   grid-template-columns: 1fr 1fr;
   gap: 6px 12px;
   padding: 12px 16px;
-  background: #0f0f24;
+  background: #04101c;
   border-radius: 8px;
-  border: 1px solid #1e1e3a;
+  border: 1px solid #0a1e2e;
 }
 
 .complexityLabel {
@@ -64,7 +64,7 @@
 
 .complexityValue {
   font-size: 12px;
-  color: #a78bfa;
+  color: #22d3ee;
   font-family: 'Courier New', monospace;
   font-weight: 600;
   align-self: center;
@@ -90,9 +90,9 @@
   align-items: center;
   gap: 10px;
   padding: 8px 12px;
-  background: #0a0a1a;
+  background: #03080e;
   border-radius: 8px;
-  border: 1px solid #1e1e3a;
+  border: 1px solid #0a1e2e;
 }
 
 .cycleIndex {
@@ -122,8 +122,8 @@
   width: 22px;
   height: 22px;
   border-radius: 50%;
-  background: #1e1e42;
-  border: 1.5px solid #4a4a80;
+  background: #071520;
+  border: 1.5px solid #1a3a4a;
   font-size: 11px;
   font-weight: 700;
   font-family: 'Courier New', monospace;

@@ -1,6 +1,6 @@
 .app {
   min-height: 100vh;
-  background: #0d0d1f;
+  background: #080810;
   color: #e2e8f0;
   display: flex;
   flex-direction: column;
@@ -12,9 +12,9 @@
   display: flex;
   align-items: center;
   gap: 24px;
-  padding: 14px 28px;
-  border-bottom: 1px solid #1e1e3a;
-  background: #0a0a18;
+  padding: 16px 28px;
+  border-bottom: 1px solid #0e2a3a;
+  background: linear-gradient(to right, #050510, #060c1a);
   flex-shrink: 0;
   flex-wrap: wrap;
 }
@@ -22,21 +22,26 @@
 .headerLeft {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 4px;
   margin-right: auto;
 }
 
 .logo {
-  font-size: 20px;
-  font-weight: 700;
-  color: #e2e8f0;
-  letter-spacing: 0.04em;
+  font-size: 22px;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  background: linear-gradient(135deg, #22d3ee 0%, #38bdf8 50%, #818cf8 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  filter: drop-shadow(0 0 12px #22d3ee44);
 }
 
 .subtitle {
   font-size: 10px;
-  color: #4a4a80;
-  letter-spacing: 0.1em;
+  color: #1e6a7a;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
 }
 
@@ -44,16 +49,16 @@
 .modeToggle {
   display: flex;
   gap: 0;
-  border: 1px solid #2a2a50;
+  border: 1px solid #0e2a3a;
   border-radius: 8px;
   overflow: hidden;
 }
 
 .modeBtn {
   padding: 7px 16px;
-  background: #12122a;
+  background: #060c1a;
   border: none;
-  color: #64748b;
+  color: #2a5060;
   font-size: 12px;
   font-family: 'Courier New', monospace;
   font-weight: 600;
@@ -62,11 +67,11 @@
   letter-spacing: 0.04em;
 }
 
-.modeBtn:hover { background: #1a1a35; color: #94a3b8; }
+.modeBtn:hover { background: #0a1a28; color: #5ba3b8; }
 
 .modeBtnActive {
-  background: #1e2d5a;
-  color: #93c5fd;
+  background: #0a2233;
+  color: #22d3ee;
 }
 
 /* ── Main layout ─────────────────────────────────────────────────────────────── */
@@ -90,8 +95,8 @@
 }
 
 .graphWrapper {
-  background: #0a0a18;
-  border: 1px solid #1e1e3a;
+  background: #04101c;
+  border: 1px solid #0a1e2e;
   border-radius: 12px;
   aspect-ratio: 1;
   max-height: calc(100vh - 200px);
@@ -125,7 +130,7 @@
 
 .legendLabel {
   font-size: 11px;
-  color: #4a4a80;
+  color: #1a3a4a;
   letter-spacing: 0.04em;
 }
 
@@ -137,7 +142,7 @@
 
 /* Algo mode dots */
 .dotAlgoCurrent { background: #7a5f00; border-color: #f59e0b; }
-.dotAlgoInPath  { background: #1e2d5a; border-color: #3b82f6; }
+.dotAlgoInPath  { background: #0a233a; border-color: #3b82f6; }
 .dotAlgoFound   { background: #14532d; border-color: #22c55e; }
 .dotAlgoDeadEnd { background: #450a0a; border-color: #ef4444; }
 

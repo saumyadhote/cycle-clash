@@ -8,8 +8,8 @@
   align-items: center;
   gap: 6px;
   padding: 7px 14px;
-  background: #1e1e3a;
-  border: 1px solid #3a3a60;
+  background: #0a1e2e;
+  border: 1px solid #0e2a3a;
   border-radius: 8px;
   color: #94a3b8;
   font-size: 13px;
@@ -20,20 +20,20 @@
 }
 
 .btn:hover {
-  background: #2a2a4a;
+  background: #0a2233;
   color: #e2e8f0;
-  border-color: #5a5a90;
+  border-color: #0e3a4a;
 }
 
 .btnActive {
-  background: #1e2d5a;
+  background: #0a233a;
   border-color: #3b82f6;
   color: #93c5fd;
 }
 
 .nodeCount {
   font-size: 10px;
-  color: #4a4a80;
+  color: #1a3a4a;
   font-family: 'Courier New', monospace;
 }
 

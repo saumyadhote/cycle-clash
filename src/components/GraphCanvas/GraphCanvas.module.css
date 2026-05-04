@@ -6,7 +6,7 @@
 
 /* ── Edges ─────────────────────────────────────────────────────────────────── */
 .edge {
-  stroke: #2a2a55;
+  stroke: #0e2a3a;
   stroke-width: 2.5;
   stroke-linecap: round;
   transition: stroke 0.25s ease, stroke-width 0.25s ease;
@@ -38,7 +38,7 @@
 }
 
 /* ── Game mode node states ──────────────────────────────────────────────────── */
-.nodeDefault   { fill: #1e1e42; stroke: #4a4a80; }
+.nodeDefault   { fill: #071520; stroke: #1a3a4a; }
 .nodeStart     { fill: #2a1a1a; stroke: #ef4444; }
 .nodeVisited   { fill: #1d3a7a; stroke: #3b82f6; }
 .nodeCurrent   { fill: #7a5f00; stroke: #ffd700; stroke-width: 3; filter: drop-shadow(0 0 6px #ffd70066); }
@@ -47,8 +47,8 @@
 .nodeWon       { fill: #15803d; stroke: #22c55e; stroke-width: 3; filter: drop-shadow(0 0 8px #22c55eaa); }
 
 /* ── Algo mode node states ──────────────────────────────────────────────────── */
-.algoDefault  { fill: #12122a; stroke: #2a2a50; }
-.algoInPath   { fill: #1e2d5a; stroke: #3b82f6; stroke-width: 2.5; }
+.algoDefault  { fill: #0a1520; stroke: #0e2a3a; }
+.algoInPath   { fill: #0a233a; stroke: #3b82f6; stroke-width: 2.5; }
 .algoCurrent  { fill: #7a5f00; stroke: #f59e0b; stroke-width: 3; filter: drop-shadow(0 0 8px #f59e0b88); }
 .algoFound    { fill: #14532d; stroke: #22c55e; stroke-width: 3; filter: drop-shadow(0 0 10px #22c55ebb); }
 .algoDeadEnd  { fill: #450a0a; stroke: #ef4444; stroke-width: 3; filter: drop-shadow(0 0 8px #ef444488); }

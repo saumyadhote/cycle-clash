@@ -3,8 +3,8 @@
   flex-direction: column;
   gap: 20px;
   padding: 24px;
-  background: #12122a;
-  border: 1px solid #2a2a50;
+  background: #0a1520;
+  border: 1px solid #0e2a3a;
   border-radius: 12px;
   height: 100%;
   box-sizing: border-box;
@@ -37,7 +37,7 @@
 
 .progressBar {
   height: 6px;
-  background: #1e1e3a;
+  background: #0a1e2e;
   border-radius: 99px;
   overflow: hidden;
 }
@@ -71,9 +71,9 @@
 }
 
 .status_playing {
-  background: #1e1e3a;
+  background: #0a1e2e;
   color: #94a3b8;
-  border: 1px solid #2a2a50;
+  border: 1px solid #0e2a3a;
 }
 
 .status_canReturn {
@@ -117,9 +117,9 @@
   align-items: center;
   gap: 2px;
   padding: 12px;
-  background: #0a0a1a;
+  background: #03080e;
   border-radius: 8px;
-  border: 1px solid #1e1e3a;
+  border: 1px solid #0a1e2e;
   min-height: 48px;
 }
 
@@ -136,8 +136,8 @@
   width: 26px;
   height: 26px;
   border-radius: 50%;
-  background: #1e1e42;
-  border: 1.5px solid #4a4a80;
+  background: #071520;
+  border: 1.5px solid #1a3a4a;
   font-size: 12px;
   font-weight: 700;
   font-family: 'Courier New', monospace;
@@ -172,8 +172,8 @@
 /* Reset button */
 .resetBtn {
   padding: 10px 0;
-  background: #1e1e3a;
-  border: 1px solid #3a3a60;
+  background: #0a1e2e;
+  border: 1px solid #0e2a3a;
   border-radius: 8px;
   color: #94a3b8;
   font-size: 13px;
@@ -185,11 +185,11 @@
 }
 
 .resetBtn:hover {
-  background: #2a2a4a;
+  background: #0a2233;
   color: #e2e8f0;
-  border-color: #5a5a90;
+  border-color: #0e3a4a;
 }
 
 .resetBtn:active {
-  background: #14142e;
+  background: #03080e;
 }
