@@ -1,0 +1,64 @@
+.canvas {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* ── Edges ─────────────────────────────────────────────────────────────────── */
+.edge {
+  stroke: #2a2a55;
+  stroke-width: 2.5;
+  stroke-linecap: round;
+  transition: stroke 0.25s ease, stroke-width 0.25s ease;
+}
+
+.edgeTraversed  { stroke: #3b82f6; stroke-width: 3.5; }
+.edgeWon        { stroke: #22c55e; stroke-width: 3.5; }
+.edgeAlgoActive { stroke: #f59e0b; stroke-width: 3.5; }
+.edgeAlgoFound  { stroke: #22c55e; stroke-width: 4;   }
+
+/* ── Node group ─────────────────────────────────────────────────────────────── */
+.nodeGroup  { cursor: default; }
+.clickable  { cursor: pointer; }
+.clickable:hover .nodeCircle { filter: brightness(1.35); }
+
+/* Start ring */
+.startRing {
+  fill: none;
+  stroke: #ef4444;
+  stroke-width: 1.5;
+  stroke-dasharray: 4 3;
+  opacity: 0.6;
+}
+
+/* Node circle base */
+.nodeCircle {
+  transition: fill 0.2s ease, stroke 0.2s ease, filter 0.2s ease;
+  stroke-width: 2.5;
+}
+
+/* ── Game mode node states ──────────────────────────────────────────────────── */
+.nodeDefault   { fill: #1e1e42; stroke: #4a4a80; }
+.nodeStart     { fill: #2a1a1a; stroke: #ef4444; }
+.nodeVisited   { fill: #1d3a7a; stroke: #3b82f6; }
+.nodeCurrent   { fill: #7a5f00; stroke: #ffd700; stroke-width: 3; filter: drop-shadow(0 0 6px #ffd70066); }
+.nodeValidMove { fill: #1a2e1a; stroke: #22c55e; stroke-width: 3; filter: drop-shadow(0 0 4px #22c55e55); }
+.nodeCanReturn { fill: #14532d; stroke: #22c55e; stroke-width: 3; filter: drop-shadow(0 0 8px #22c55e88); }
+.nodeWon       { fill: #15803d; stroke: #22c55e; stroke-width: 3; filter: drop-shadow(0 0 8px #22c55eaa); }
+
+/* ── Algo mode node states ──────────────────────────────────────────────────── */
+.algoDefault  { fill: #12122a; stroke: #2a2a50; }
+.algoInPath   { fill: #1e2d5a; stroke: #3b82f6; stroke-width: 2.5; }
+.algoCurrent  { fill: #7a5f00; stroke: #f59e0b; stroke-width: 3; filter: drop-shadow(0 0 8px #f59e0b88); }
+.algoFound    { fill: #14532d; stroke: #22c55e; stroke-width: 3; filter: drop-shadow(0 0 10px #22c55ebb); }
+.algoDeadEnd  { fill: #450a0a; stroke: #ef4444; stroke-width: 3; filter: drop-shadow(0 0 8px #ef444488); }
+
+/* ── Node label ─────────────────────────────────────────────────────────────── */
+.nodeLabel {
+  fill: #e2e8f0;
+  font-size: 14px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  pointer-events: none;
+  user-select: none;
+}
