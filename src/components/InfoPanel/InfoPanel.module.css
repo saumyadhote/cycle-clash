@@ -1,0 +1,195 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px;
+  background: #12122a;
+  border: 1px solid #2a2a50;
+  border-radius: 12px;
+  height: 100%;
+  box-sizing: border-box;
+}
+
+.title {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+/* Progress bar */
+.progress {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.progressLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.progressBar {
+  height: 6px;
+  background: #1e1e3a;
+  border-radius: 99px;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: #3b82f6;
+  border-radius: 99px;
+  transition: width 0.35s ease;
+}
+
+.progressWon {
+  background: #22c55e;
+}
+
+.progressCount {
+  font-size: 12px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+  align-self: flex-end;
+}
+
+/* Status badge */
+.statusBadge {
+  padding: 10px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  text-align: center;
+}
+
+.status_playing {
+  background: #1e1e3a;
+  color: #94a3b8;
+  border: 1px solid #2a2a50;
+}
+
+.status_canReturn {
+  background: #14532d22;
+  color: #22c55e;
+  border: 1px solid #22c55e55;
+}
+
+.status_won {
+  background: #14532d33;
+  color: #22c55e;
+  border: 1px solid #22c55e;
+  box-shadow: 0 0 12px #22c55e33;
+}
+
+.status_stuck {
+  background: #450a0a22;
+  color: #ef4444;
+  border: 1px solid #ef444455;
+}
+
+/* Path display */
+.pathSection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.pathLabel {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.pathDisplay {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 2px;
+  padding: 12px;
+  background: #0a0a1a;
+  border-radius: 8px;
+  border: 1px solid #1e1e3a;
+  min-height: 48px;
+}
+
+.pathItem {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.pathNode {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: #1e1e42;
+  border: 1.5px solid #4a4a80;
+  font-size: 12px;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  color: #e2e8f0;
+}
+
+.pathNodeStart {
+  border-color: #ef4444;
+  color: #fca5a5;
+}
+
+.pathArrow {
+  color: #3b82f6;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  padding: 0 2px;
+}
+
+.pathCursor {
+  color: #ffd700;
+  font-weight: 700;
+  font-family: 'Courier New', monospace;
+  font-size: 16px;
+  animation: blink 1s step-end infinite;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* Reset button */
+.resetBtn {
+  padding: 10px 0;
+  background: #1e1e3a;
+  border: 1px solid #3a3a60;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.resetBtn:hover {
+  background: #2a2a4a;
+  color: #e2e8f0;
+  border-color: #5a5a90;
+}
+
+.resetBtn:active {
+  background: #14142e;
+}
