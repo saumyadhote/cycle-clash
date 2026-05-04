@@ -1,0 +1,262 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 20px;
+  background: #12122a;
+  border: 1px solid #2a2a50;
+  border-radius: 12px;
+  height: 100%;
+  box-sizing: border-box;
+  overflow: hidden;
+}
+
+/* Header */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.title {
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+}
+
+.counter {
+  font-size: 12px;
+  color: #94a3b8;
+  font-family: 'Courier New', monospace;
+}
+
+/* Progress */
+.progressBar {
+  height: 4px;
+  background: #1e1e3a;
+  border-radius: 99px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.progressFill {
+  height: 100%;
+  background: #a78bfa;
+  border-radius: 99px;
+  transition: width 0.2s ease;
+}
+
+/* Description box */
+.descBox {
+  padding: 10px 14px;
+  background: #0a0a1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 8px;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.descPlaceholder {
+  font-size: 12px;
+  color: #3a3a60;
+  font-family: 'Courier New', monospace;
+  font-style: italic;
+}
+
+.descText {
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  line-height: 1.5;
+  word-break: break-word;
+}
+
+.desc_visit     { color: #93c5fd; }
+.desc_found     { color: #4ade80; font-weight: 700; }
+.desc_dead_end  { color: #f87171; }
+.desc_backtrack { color: #94a3b8; }
+.desc_start     { color: #fcd34d; }
+.desc_done      { color: #64748b; }
+
+/* Controls */
+.controls {
+  display: flex;
+  gap: 8px;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ctrlBtn {
+  width: 36px;
+  height: 36px;
+  background: #1e1e3a;
+  border: 1px solid #3a3a60;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 14px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s, color 0.15s;
+  flex-shrink: 0;
+}
+
+.ctrlBtn:hover:not(:disabled) {
+  background: #2a2a4a;
+  color: #e2e8f0;
+}
+
+.ctrlBtn:disabled {
+  opacity: 0.3;
+  cursor: default;
+}
+
+.playBtn {
+  width: 44px;
+  height: 36px;
+  background: #1e2d5a;
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+.playBtn:hover:not(:disabled) {
+  background: #1e3a6e;
+}
+
+/* Speed */
+.speedRow {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  flex-shrink: 0;
+}
+
+.speedLabel {
+  font-size: 11px;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-right: 4px;
+}
+
+.speedBtn {
+  padding: 4px 10px;
+  background: #1e1e3a;
+  border: 1px solid #2a2a50;
+  border-radius: 6px;
+  color: #64748b;
+  font-size: 11px;
+  font-family: 'Courier New', monospace;
+  cursor: pointer;
+  transition: all 0.15s;
+}
+
+.speedBtn:hover {
+  border-color: #4a4a80;
+  color: #94a3b8;
+}
+
+.speedBtnActive {
+  background: #1e1e45;
+  border-color: #a78bfa;
+  color: #c4b5fd;
+}
+
+/* Stats */
+.stats {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 8px;
+  flex-shrink: 0;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 8px 4px;
+  background: #0a0a1a;
+  border: 1px solid #1e1e3a;
+  border-radius: 8px;
+  gap: 4px;
+}
+
+.statLabel {
+  font-size: 10px;
+  color: #4a4a80;
+  font-family: 'Courier New', monospace;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  text-align: center;
+}
+
+.statValue {
+  font-size: 20px;
+  font-weight: 700;
+  color: #e2e8f0;
+  font-family: 'Courier New', monospace;
+}
+
+.statGreen {
+  color: #4ade80;
+}
+
+/* Trace log */
+.logHeader {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #64748b;
+  font-family: 'Courier New', monospace;
+  flex-shrink: 0;
+}
+
+.log {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding-right: 4px;
+  min-height: 0;
+}
+
+.logRow {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  padding: 4px 8px;
+  border-radius: 5px;
+  font-family: 'Courier New', monospace;
+  font-size: 11px;
+  line-height: 1.45;
+  transition: background 0.15s;
+}
+
+.logRowActive {
+  background: #1e1e3a;
+  outline: 1px solid #3a3a60;
+}
+
+.logIcon {
+  flex-shrink: 0;
+  width: 14px;
+  text-align: center;
+}
+
+.logText {
+  word-break: break-word;
+}
+
+.log_visit     { color: #93c5fd; }
+.log_found     { color: #4ade80; font-weight: 700; }
+.log_dead_end  { color: #f87171; }
+.log_backtrack { color: #64748b; }
+.log_start     { color: #fcd34d; }
+.log_done      { color: #3a3a60; }
