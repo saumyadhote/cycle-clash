@@ -1,0 +1,42 @@
+.selector {
+  display: flex;
+  gap: 8px;
+}
+
+.btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px;
+  background: #1e1e3a;
+  border: 1px solid #3a3a60;
+  border-radius: 8px;
+  color: #94a3b8;
+  font-size: 13px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+}
+
+.btn:hover {
+  background: #2a2a4a;
+  color: #e2e8f0;
+  border-color: #5a5a90;
+}
+
+.btnActive {
+  background: #1e2d5a;
+  border-color: #3b82f6;
+  color: #93c5fd;
+}
+
+.nodeCount {
+  font-size: 10px;
+  color: #4a4a80;
+  font-family: 'Courier New', monospace;
+}
+
+.btnActive .nodeCount {
+  color: #3b82f6;
+}
