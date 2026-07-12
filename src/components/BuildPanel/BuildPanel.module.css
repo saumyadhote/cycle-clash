@@ -1,0 +1,139 @@
+.panel {
+  background: #04101c;
+  border: 1px solid #0a1e2e;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.title {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #22d3ee;
+  margin: 0;
+}
+
+.hint {
+  font-size: 12px;
+  color: #4a8a9a;
+  line-height: 1.6;
+  min-height: 36px;
+}
+
+.stats {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 0;
+  border-top: 1px solid #0a1e2e;
+  border-bottom: 1px solid #0a1e2e;
+}
+
+.stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  flex: 1;
+}
+
+.statVal {
+  font-size: 28px;
+  font-weight: 800;
+  color: #22d3ee;
+  line-height: 1;
+}
+
+.statDivider {
+  width: 1px;
+  height: 32px;
+  background: #0a1e2e;
+}
+
+.statLabel {
+  font-size: 10px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #1e4a5a;
+}
+
+.tip {
+  font-size: 11px;
+  color: #1e5a3a;
+  background: #04180e;
+  border: 1px solid #0a2e1a;
+  border-radius: 6px;
+  padding: 8px 10px;
+  line-height: 1.5;
+}
+
+.tip strong { color: #22c55e; }
+
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.btnShare {
+  padding: 9px;
+  background: #0a233a;
+  border: 1px solid #22d3ee44;
+  border-radius: 8px;
+  color: #22d3ee;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.btnShare:hover { background: #0d2e4a; border-color: #22d3ee88; }
+
+.btnClear {
+  padding: 9px;
+  background: #160808;
+  border: 1px solid #2a0a0a;
+  border-radius: 8px;
+  color: #7a3a3a;
+  font-size: 12px;
+  font-family: 'Courier New', monospace;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.06em;
+  transition: background 0.15s, color 0.15s;
+}
+
+.btnClear:hover { background: #1e0c0c; color: #ef4444; }
+
+.guide {
+  border-top: 1px solid #0a1e2e;
+  padding-top: 14px;
+}
+
+.guideTitle {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a3a4a;
+  margin-bottom: 8px;
+}
+
+.guideList {
+  margin: 0;
+  padding-left: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.guideList li {
+  font-size: 11px;
+  color: #1e4a5a;
+  line-height: 1.4;
+}

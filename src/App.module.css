@@ -146,6 +146,10 @@
 .dotAlgoFound   { background: #14532d; border-color: #22c55e; }
 .dotAlgoDeadEnd { background: #450a0a; border-color: #ef4444; }
 
+/* Build mode dots */
+.dotBuildDefault  { background: #071520; border-color: #0e3a4a; }
+.dotBuildSelected { background: #0a233a; border-color: #22d3ee; }
+
 /* ── Sidebar ─────────────────────────────────────────────────────────────────── */
 .sidebar {
   display: flex;

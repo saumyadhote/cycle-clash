@@ -1,6 +1,17 @@
+.selectorWrapper {
+  overflow-x: auto;
+  max-width: 100%;
+  scrollbar-width: none;
+}
+
+.selectorWrapper::-webkit-scrollbar {
+  display: none;
+}
+
 .selector {
   display: flex;
   gap: 8px;
+  min-width: max-content;
 }
 
 .btn {
@@ -39,4 +50,24 @@
 
 .btnActive .nodeCount {
   color: #3b82f6;
+}
+
+.btnCustom {
+  border-color: #22d3ee22;
+  color: #22d3ee88;
+}
+
+.btnCustom:hover {
+  border-color: #22d3ee44;
+  color: #22d3ee;
+}
+
+.btnCustom.btnActive {
+  background: #061e28;
+  border-color: #22d3ee;
+  color: #22d3ee;
+}
+
+.btnCustom.btnActive .nodeCount {
+  color: #22d3ee88;
 }
