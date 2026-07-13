@@ -1,0 +1,185 @@
+.panel {
+  background: #04101c;
+  border: 1px solid #0a1e2e;
+  border-radius: 12px;
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.panelTitle {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #22d3ee;
+}
+
+.empty {
+  font-size: 12px;
+  color: #1e4a5a;
+  line-height: 1.6;
+}
+
+/* ── Sections ───────────────────────────────────────────────────────────────── */
+.section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.sectionTitle {
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #1a3a4a;
+  padding-bottom: 6px;
+  border-bottom: 1px solid #0a1e2e;
+}
+
+/* ── Theorems ───────────────────────────────────────────────────────────────── */
+.theorem {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 10px 12px;
+  background: #060e1a;
+  border: 1px solid #0a1e2e;
+  border-radius: 8px;
+}
+
+.theoremHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.theoremName {
+  font-size: 12px;
+  font-weight: 700;
+  color: #94a3b8;
+  letter-spacing: 0.02em;
+}
+
+.badge {
+  font-size: 9px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  padding: 2px 7px;
+  border-radius: 4px;
+  flex-shrink: 0;
+}
+
+.badgePass {
+  background: #052010;
+  color: #22c55e;
+  border: 1px solid #16532a;
+}
+
+.badgeFail {
+  background: #1a0808;
+  color: #ef4444;
+  border: 1px solid #3a1010;
+}
+
+.theoremDetail {
+  font-size: 11px;
+  color: #2a5a6a;
+  font-family: 'Courier New', monospace;
+  line-height: 1.4;
+}
+
+.theoremImplication {
+  font-size: 11px;
+  color: #16803d;
+  margin-top: 2px;
+}
+
+.caveat {
+  font-size: 11px;
+  color: #7a5020;
+  background: #120a02;
+  border: 1px solid #2a1a04;
+  border-radius: 6px;
+  padding: 8px 10px;
+  line-height: 1.5;
+}
+
+/* ── Complexity chart ───────────────────────────────────────────────────────── */
+.chart {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.chartRow {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.chartLabel {
+  font-size: 10px;
+  color: #1e4a5a;
+  font-family: 'Courier New', monospace;
+  width: 74px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.chartBarWrap {
+  flex: 1;
+  height: 10px;
+  background: #060e1a;
+  border-radius: 3px;
+  overflow: hidden;
+}
+
+.chartBar {
+  height: 100%;
+  background: linear-gradient(to right, #0e3a4a, #22d3ee44);
+  border-radius: 3px;
+  transition: width 0.4s ease;
+  min-width: 2px;
+}
+
+.chartCount {
+  font-size: 10px;
+  color: #1e4a5a;
+  font-family: 'Courier New', monospace;
+  width: 38px;
+  flex-shrink: 0;
+  text-align: right;
+}
+
+.currentSteps {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 12px;
+  background: #060e1a;
+  border: 1px solid #0e3a4a;
+  border-radius: 6px;
+  margin-top: 2px;
+}
+
+.currentLabel {
+  font-size: 11px;
+  color: #4a8a9a;
+}
+
+.currentValue {
+  font-size: 13px;
+  font-weight: 700;
+  color: #22d3ee;
+  font-family: 'Courier New', monospace;
+}
+
+.note {
+  font-size: 10px;
+  color: #1a3a4a;
+  line-height: 1.5;
+  padding-top: 2px;
+}

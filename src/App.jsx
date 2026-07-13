@@ -15,6 +15,7 @@ import AlgorithmPanel from './components/AlgorithmPanel/AlgorithmPanel';
 import AlgorithmVisualizer from './components/AlgorithmVisualizer/AlgorithmVisualizer';
 import GraphSelector from './components/GraphSelector/GraphSelector';
 import BuildPanel from './components/BuildPanel/BuildPanel';
+import TheoryPanel from './components/TheoryPanel/TheoryPanel';
 
 function resolveInitialState() {
   const { graphKey, customGraph } = decodeState();
@@ -196,7 +197,10 @@ export default function App() {
 
         <aside className={styles.sidebar}>
           {mode === 'algo' && (
-            <AlgorithmVisualizer playback={playback} stats={stats} />
+            <>
+              <AlgorithmVisualizer playback={playback} stats={stats} />
+              <TheoryPanel graph={graph} totalSteps={algoSteps.length} />
+            </>
           )}
           {mode === 'play' && (
             <>
@@ -206,6 +210,7 @@ export default function App() {
                 graphName={graph.name}
                 startNode={graph.startNode}
               />
+              <TheoryPanel graph={graph} totalSteps={algoSteps.length} />
             </>
           )}
           {mode === 'build' && (
