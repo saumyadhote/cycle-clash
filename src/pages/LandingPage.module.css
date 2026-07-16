@@ -248,3 +248,526 @@
   writing-mode: vertical-rl;
   transform: rotate(180deg);
 }
+
+/* ══════════════════════════════════════════════════════
+   READING VIEW
+══════════════════════════════════════════════════════ */
+.readingView {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  width: 100%;
+  padding: 32px 20px;
+}
+
+.readingOuter {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+}
+
+.closeBtn {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.65);
+  cursor: pointer;
+  padding: 8px 14px;
+  transition: color 0.18s ease;
+  margin-left: max(0px, calc(50vw - 390px));
+}
+
+.closeBtn:hover { color: rgba(255,255,255,0.95); }
+.closeBtn:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.7);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+
+/* ── 3D book container ───────────────────────────────── */
+.bookWrap {
+  position: relative;
+  width: 760px;
+  height: 530px;
+  max-width: calc(100vw - 32px);
+}
+
+/* Back cover — sits behind pages and front cover */
+.bookBackCover {
+  position: absolute;
+  inset: 0;
+  background-color: var(--cover);
+  border-radius: 5px;
+  box-shadow:
+    0 20px 60px rgba(0,0,0,0.45),
+    0 6px 20px rgba(0,0,0,0.28);
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(0,0,0,0.04) 3px, rgba(0,0,0,0.04) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 3px,
+      rgba(255,255,255,0.018) 3px, rgba(255,255,255,0.018) 4px
+    );
+}
+
+/* ── Pages (left + spine + right) ───────────────────── */
+.bookPages {
+  position: absolute;
+  top: 18px;
+  bottom: 18px;
+  left: 18px;
+  right: 18px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 1px 4px 4px 1px;
+  overflow: hidden;
+  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.06);
+}
+
+/* Left page */
+.leftPage {
+  flex: 1;
+  background: #f5f0e8;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 40px 34px;
+  border-right: 1px solid rgba(0,0,0,0.07);
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 27px,
+    rgba(0,0,0,0.018) 27px, rgba(0,0,0,0.018) 28px
+  );
+}
+
+.leftContent {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.bookTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 46px;
+  font-weight: 400;
+  letter-spacing: 0.07em;
+  line-height: 1;
+}
+
+.bookRule {
+  width: 36px;
+  height: 2px;
+  opacity: 0.35;
+  border-radius: 1px;
+}
+
+.bookMeta {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.bookMeta p {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.38);
+}
+
+/* Center spine divider */
+.pageSpine {
+  width: 22px;
+  flex-shrink: 0;
+  background-color: var(--spine);
+  background-image: linear-gradient(
+    to right,
+    rgba(0,0,0,0.18) 0%,
+    transparent 45%,
+    rgba(255,255,255,0.04) 55%,
+    rgba(0,0,0,0.12) 100%
+  );
+  box-shadow:
+    inset -3px 0 6px rgba(0,0,0,0.18),
+    inset  3px 0 6px rgba(0,0,0,0.10);
+}
+
+/* Right page */
+.rightPage {
+  flex: 1;
+  background: #f8f4ec;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  overflow: hidden;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 27px,
+    rgba(0,0,0,0.016) 27px, rgba(0,0,0,0.016) 28px
+  );
+}
+
+/* ── Page tabs (right edge) ──────────────────────────── */
+.pageTabs {
+  position: absolute;
+  right: 0;
+  top: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  z-index: 2;
+}
+
+.pageTab {
+  width: 38px;
+  height: 38px;
+  border: none;
+  border-radius: 0 4px 4px 0;
+  border-left: 2px solid rgba(0,0,0,0.07);
+  background: rgba(237,232,224,0.82);
+  cursor: pointer;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 7.5px;
+  font-weight: 600;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: rgba(0,0,0,0.42);
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
+  padding: 6px 0;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease,
+    width 0.15s ease;
+}
+
+.pageTab:hover {
+  background: rgba(255,255,255,0.96);
+  width: 44px;
+  color: rgba(0,0,0,0.65);
+}
+
+.pageTab:focus-visible {
+  outline: 2px solid rgba(0,0,0,0.4);
+  outline-offset: -2px;
+}
+
+.pageTabOn {
+  background-color: var(--tab) !important;
+  color: rgba(255,255,255,0.88) !important;
+  width: 42px;
+  border-left-color: transparent;
+}
+
+/* Right page content area */
+.rightContent {
+  padding: 36px 56px 36px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  flex: 1;
+  overflow-y: auto;
+  scrollbar-width: thin;
+  scrollbar-color: rgba(0,0,0,0.15) transparent;
+}
+
+.sectionHead {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 30px;
+  font-weight: 400;
+  letter-spacing: 0.06em;
+  color: #1a1208;
+  line-height: 1.1;
+  margin-bottom: 2px;
+}
+
+.sectionBody {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12.5px;
+  font-weight: 400;
+  color: #2c2210;
+  line-height: 1.88;
+}
+
+.enterBtn {
+  margin-top: 22px;
+  align-self: flex-start;
+  padding: 10px 22px;
+  background-color: var(--btn);
+  border: none;
+  border-radius: 2px;
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 17px;
+  letter-spacing: 0.1em;
+  color: rgba(255,255,255,0.92);
+  cursor: pointer;
+  transition: opacity 0.18s ease, transform 0.14s ease;
+}
+
+.enterBtn:hover {
+  opacity: 0.85;
+  transform: translateX(3px);
+}
+
+.enterBtn:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.7);
+  outline-offset: 3px;
+}
+
+/* ── Front cover (3D rotating element) ──────────────── */
+.frontCover {
+  position: absolute;
+  inset: 0;
+  transform-style: preserve-3d;
+}
+
+/* Outer face of cover (what you see before opening) */
+.coverFront {
+  position: absolute;
+  inset: 0;
+  background-color: var(--cover);
+  backface-visibility: hidden;
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+  padding: 24px 26px;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(0,0,0,0.042) 3px, rgba(0,0,0,0.042) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 3px,
+      rgba(255,255,255,0.02) 3px, rgba(255,255,255,0.02) 4px
+    );
+}
+
+.coverCloth {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.coverLabel {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 26px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.10),
+    0 -1px 0 rgba(0,0,0,0.36);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.22);
+}
+
+/* Inside of cover — endpaper, seen when cover opens past 90° */
+.coverInside {
+  position: absolute;
+  inset: 0;
+  background: #ede8e0;
+  transform: rotateY(180deg);
+  backface-visibility: hidden;
+  border-radius: 5px;
+}
+
+/* ══════════════════════════════════════════════════════
+   ABOUT BUTTON + STICKY NOTE
+══════════════════════════════════════════════════════ */
+.aboutArea {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.aboutBtn {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.16);
+  border: 1px solid rgba(255,255,255,0.28);
+  color: rgba(255,255,255,0.78);
+  font-family: 'Montserrat', sans-serif;
+  font-size: 17px;
+  font-weight: 600;
+  cursor: pointer;
+  line-height: 1;
+  transition: background 0.18s ease;
+}
+
+.aboutBtn:hover { background: rgba(255,255,255,0.26); }
+.aboutBtn:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.7);
+  outline-offset: 3px;
+}
+
+.stickyNote {
+  position: absolute;
+  bottom: 54px;
+  right: 0;
+  width: 248px;
+  background: #f5e96a;
+  padding: 20px 18px 18px;
+  border-radius: 2px;
+  box-shadow:
+    2px 4px 18px rgba(0,0,0,0.26),
+    0 1px 3px rgba(0,0,0,0.14);
+}
+
+/* Pin at top of note */
+.stickyNote::before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  right: 18px;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #e04040;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+.stickyClose {
+  position: absolute;
+  top: 8px;
+  right: 10px;
+  background: none;
+  border: none;
+  font-size: 18px;
+  color: rgba(0,0,0,0.38);
+  cursor: pointer;
+  line-height: 1;
+  padding: 2px 6px;
+  transition: color 0.15s ease;
+}
+
+.stickyClose:hover { color: rgba(0,0,0,0.7); }
+
+.stickyTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 22px;
+  letter-spacing: 0.08em;
+  color: rgba(0,0,0,0.7);
+  margin-bottom: 10px;
+}
+
+.stickyText {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 11.5px;
+  font-weight: 400;
+  color: rgba(0,0,0,0.65);
+  line-height: 1.7;
+  margin-bottom: 8px;
+}
+
+/* ══════════════════════════════════════════════════════
+   RESPONSIVE
+══════════════════════════════════════════════════════ */
+
+/* Tablet */
+@media (max-width: 860px) {
+  .heroTitle { font-size: 66px; }
+  .notebookRow { gap: 18px; }
+  .closedBook { width: 128px; height: 178px; }
+  .cbTitle { font-size: 12px; }
+
+  .bookWrap { width: 100%; height: auto; aspect-ratio: 760 / 530; }
+  .closeBtn { margin-left: 0; }
+}
+
+/* Mobile */
+@media (max-width: 560px) {
+  .heroTitle { font-size: 52px; letter-spacing: 0.06em; }
+  .heroSub { font-size: 10px; }
+
+  .nbSlot { padding: 20px 10px; }
+  .closedBook { width: 140px; height: 192px; }
+
+  .bookWrap {
+    width: 100%;
+    height: auto;
+    min-height: 480px;
+    aspect-ratio: auto;
+  }
+
+  .bookBackCover { border-radius: 4px; }
+
+  .bookPages {
+    top: 14px; bottom: 14px;
+    left: 14px; right: 14px;
+    flex-direction: column;
+  }
+
+  /* Single-page reading on mobile */
+  .leftPage { display: none; }
+  .pageSpine { display: none; }
+
+  .rightPage { flex: 1; }
+
+  .pageTabs {
+    flex-direction: row;
+    position: static;
+    padding: 10px 12px 0;
+    gap: 4px;
+    overflow-x: auto;
+  }
+
+  .pageTab,
+  .pageTabOn {
+    writing-mode: horizontal-tb;
+    transform: none;
+    width: auto;
+    height: 28px;
+    padding: 0 10px;
+    font-size: 7px;
+    border-radius: 3px 3px 0 0;
+    border-left: none;
+    border-bottom: 2px solid transparent;
+    flex-shrink: 0;
+  }
+
+  .pageTabOn { border-bottom-color: var(--tab); }
+
+  .rightContent { padding: 20px 20px 28px; }
+
+  .sectionHead { font-size: 24px; }
+  .sectionBody { font-size: 12px; }
+
+  .coverFront { border-radius: 4px; }
+  .coverInside { border-radius: 4px; }
+  .coverLabel { font-size: 20px; }
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .closedBook,
+  .cbTabs,
+  .pageTab,
+  .enterBtn,
+  .closeBtn,
+  .aboutBtn {
+    transition: none !important;
+  }
+}
