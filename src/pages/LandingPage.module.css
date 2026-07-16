@@ -1,13 +1,29 @@
-/* ── Page ───────────────────────────────────────────────────────────────────── */
+/* ── Design tokens ───────────────────────────────────── */
+/* bg: #669CB0  |  text-on-bg: rgba(255,255,255,0.XX)  */
+
+/* ── Page ────────────────────────────────────────────── */
 .page {
   min-height: 100vh;
-  background: #f0e6d0;
+  background-color: #669CB0;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(255,255,255,0.014) 3px, rgba(255,255,255,0.014) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 3px,
+      rgba(0,0,0,0.009) 3px, rgba(0,0,0,0.009) 4px
+    );
   display: flex;
   flex-direction: column;
-  font-family: 'Courier New', monospace;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Montserrat', sans-serif;
   position: relative;
   overflow: hidden;
-  transition: opacity 0.48s ease, transform 0.48s ease;
+  transition: opacity 0.38s ease, transform 0.38s ease;
 }
 
 .pageExit {
@@ -15,472 +31,220 @@
   transform: scale(0.97);
 }
 
-/* ── Layout ─────────────────────────────────────────────────────────────────── */
-.layout {
+/* ── Stack view ──────────────────────────────────────── */
+.stackView {
   display: flex;
-  flex: 1;
-  align-items: stretch;
-  max-width: 1200px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 28px 40px 16px;
-  gap: 0;
-}
-
-/* ── Left: description ──────────────────────────────────────────────────────── */
-.left {
-  flex: 0 0 35%;
-  display: flex;
+  flex-direction: column;
   align-items: center;
-  padding-right: 40px;
-  padding-bottom: 20px;
+  gap: 44px;
+  padding: 48px 24px 56px;
+  width: 100%;
 }
 
-.leftContent {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
+.stackHeader {
+  text-align: center;
 }
 
-.appTitle {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  margin-bottom: 28px;
-}
-
-.appTitleWord {
-  font-size: 42px;
-  font-weight: 900;
-  color: #1a0e04;
+.heroTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 88px;
+  font-weight: 400;
+  letter-spacing: 0.09em;
+  color: rgba(255,255,255,0.93);
   line-height: 1;
-  letter-spacing: -0.02em;
-  font-family: Georgia, serif;
+  text-shadow: 0 3px 24px rgba(0,0,0,0.22);
 }
 
-.appTitleSub {
-  font-size: 9px;
-  color: #8a6a3a;
+.heroSub {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 12px;
+  font-weight: 500;
   letter-spacing: 0.16em;
   text-transform: uppercase;
-  font-family: 'Courier New', monospace;
-  margin-top: 6px;
+  color: rgba(255,255,255,0.55);
+  margin-top: 14px;
 }
 
-.descParagraph {
-  font-size: 13px;
-  color: #2a1e0e;
-  line-height: 1.85;
-  margin: 0;
-  font-family: 'Courier New', monospace;
-}
-
-.hint {
-  margin-top: 12px;
-  font-size: 11px;
-  color: #8a6a3a;
-  letter-spacing: 0.08em;
-}
-
-/* ── Right: folder ──────────────────────────────────────────────────────────── */
-.right {
-  flex: 1;
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  padding-top: 44px;
-  min-width: 0;
-}
-
-/* Graph paper peeking out from behind the folder */
-.paperPeek {
-  position: absolute;
-  top: 18px;
-  right: 36px;
-  width: 185px;
-  height: 230px;
-  background: #f8faff;
-  background-image:
-    linear-gradient(rgba(80, 120, 200, 0.28) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(80, 120, 200, 0.28) 1px, transparent 1px);
-  background-size: 18px 18px;
-  box-shadow: 2px 2px 10px rgba(80, 50, 10, 0.18);
-  z-index: 0;
-  border-radius: 2px;
-}
-
-/* ── Folder ─────────────────────────────────────────────────────────────────── */
-.folder {
-  position: relative;
-  z-index: 1;
-  width: 100%;
-  flex: 1;
-  background: #c4935a;
-  border-radius: 0 12px 12px 12px;
-  padding: 40px 40px 32px;
-  display: flex;
-  flex-direction: column;
-  box-shadow:
-    4px 6px 24px rgba(80, 40, 5, 0.22),
-    inset 0 1px 0 rgba(255, 220, 140, 0.15);
-  /* Folder tab via pseudo-element */
-}
-
-.folder::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: 0;
-  width: 140px;
-  height: 32px;
-  background: #c4935a;
-  border-radius: 10px 10px 0 0;
-  box-shadow: 2px -2px 8px rgba(80, 40, 5, 0.15);
-}
-
-/* Subtle texture overlay on folder */
-.folder::after {
-  content: '';
-  position: absolute;
-  inset: 0;
-  border-radius: 0 12px 12px 12px;
-  background: repeating-linear-gradient(
-    135deg,
-    transparent,
-    transparent 4px,
-    rgba(255, 255, 255, 0.02) 4px,
-    rgba(255, 255, 255, 0.02) 5px
-  );
-  pointer-events: none;
-}
-
-/* ── Card grid ──────────────────────────────────────────────────────────────── */
-.cardGrid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 36px 32px;
-  position: relative;
-  z-index: 1;
-  align-items: start;
-}
-
-/* ── Card slot ──────────────────────────────────────────────────────────────── */
-.cardSlot {
+/* ── Notebook row ────────────────────────────────────── */
+.notebookRow {
   display: flex;
   flex-direction: row;
-  align-items: flex-start;
-  gap: 14px;
+  align-items: flex-end;
+  justify-content: center;
+  gap: 28px;
+}
+
+.nbSlot {
+  background: none;
+  border: none;
+  padding: 28px 18px;
   cursor: pointer;
-}
-
-/* Card slots: natural offsets like items placed on a desk */
-.cardSlot:nth-child(1) { transform: rotate(-1.5deg); }
-.cardSlot:nth-child(2) { transform: rotate(1deg) translateY(6px); }
-.cardSlot:nth-child(3) { transform: rotate(-0.8deg) translateY(4px); }
-
-.cardSlot {
-  transition: transform 0.22s ease, filter 0.22s ease;
-}
-
-.cardSlotFocused {
-  transform: rotate(0deg) scale(1.08) translateY(-6px) !important;
-  filter: drop-shadow(0 8px 22px rgba(40, 15, 0, 0.38));
-  z-index: 2;
-}
-
-/* ── Card illustration ──────────────────────────────────────────────────────── */
-.illustration {
-  flex-shrink: 0;
-  width: 84px;
-  height: 108px;
-  border-radius: 3px;
-  box-shadow: 2px 3px 10px rgba(50, 25, 5, 0.25);
-  overflow: hidden;
+  transform: rotate(var(--rot));
+  outline: none;
   position: relative;
-  transition: box-shadow 0.22s ease;
+  transition: z-index 0s;
 }
 
-.cardSlotFocused .illustration {
-  box-shadow:
-    0 0 0 3px #e8c045,
-    0 0 0 6px rgba(232, 192, 69, 0.25),
-    0 8px 24px rgba(50, 25, 5, 0.35);
+.nbSlot:focus-visible {
+  outline: 2px solid rgba(255,255,255,0.75);
+  outline-offset: 6px;
+  border-radius: 4px;
 }
 
-/* ── Illustration: Undergrad (yellow legal pad) ─────────────────────────────── */
-.illus_undergrad {
-  background: #f5df52;
-}
-
-.illusUndergrad {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: #f5df52;
-}
-
-.spiral {
-  display: flex;
-  justify-content: center;
-  gap: 5px;
-  padding-top: 6px;
-  position: relative;
-  z-index: 1;
-}
-
-.spiralDot {
-  width: 6px;
-  height: 6px;
-  border-radius: 50%;
-  border: 1.5px solid #b8a030;
-  background: #c4935a;
-}
-
-.lines {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  padding: 10px 10px 0 18px;
-}
-
-.line {
-  height: 1.5px;
-  background: rgba(100, 140, 200, 0.45);
-  border-radius: 1px;
-}
-
-.marginLine {
-  position: absolute;
-  top: 0;
-  left: 14px;
-  bottom: 0;
-  width: 1.5px;
-  background: rgba(220, 80, 80, 0.4);
-}
-
-/* ── Illustration: Graduate (graph paper) ───────────────────────────────────── */
-.illus_grad {
-  background: #f8f9ff;
-}
-
-.illusGrad {
-  width: 100%;
-  height: 100%;
-  position: relative;
-  background: #f4f8ff;
-  background-image:
-    linear-gradient(rgba(100, 140, 210, 0.22) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 140, 210, 0.22) 1px, transparent 1px),
-    linear-gradient(rgba(100, 140, 210, 0.08) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(100, 140, 210, 0.08) 1px, transparent 1px);
-  background-size: 24px 24px, 24px 24px, 6px 6px, 6px 6px;
-}
-
-.graphDot {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 2px solid rgba(80, 120, 200, 0.5);
-  background: rgba(80, 120, 200, 0.08);
-}
-
-.graphDot::before,
-.graphDot::after {
-  content: '';
-  position: absolute;
-  background: rgba(80, 120, 200, 0.45);
-}
-
-.graphDot::before {
-  width: 1px;
-  height: 28px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-.graphDot::after {
-  width: 28px;
-  height: 1px;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-}
-
-/* ── Illustration: Professor (dark planner) ─────────────────────────────────── */
-.illus_professor {
-  background: #2c2c3a;
-}
-
-.illusProf {
-  width: 100%;
-  height: 100%;
-  background: #24243a;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  padding: 10px;
-}
-
-.profTitle {
-  font-size: 7px;
-  font-weight: 800;
-  letter-spacing: 0.15em;
-  color: #d4aa55;
+/* ── Hint + cue ──────────────────────────────────────── */
+.stackHint {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  font-style: italic;
+  color: rgba(255,255,255,0.68);
   text-align: center;
-  line-height: 1.4;
-  font-family: 'Courier New', monospace;
-}
-
-.profLines {
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
-  width: 100%;
-  padding: 0 6px;
-}
-
-.profLine {
-  height: 1px;
-  background: rgba(212, 170, 85, 0.3);
-  border-radius: 1px;
-}
-
-/* ── Card meta (number + label) ─────────────────────────────────────────────── */
-.cardMeta {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  padding-top: 6px;
-}
-
-.cardNum {
-  font-size: 18px;
-  font-weight: 800;
-  color: #2a1408;
-  line-height: 1;
-  font-family: 'Courier New', monospace;
-}
-
-.cardSlotFocused .cardNum {
-  color: #1a0c04;
-}
-
-.cardLabel {
-  font-size: 11px;
-  color: #5a3a1a;
-  letter-spacing: 0.04em;
-  font-family: 'Courier New', monospace;
-}
-
-.cardSlotFocused .cardLabel {
-  color: #2a1408;
-  font-weight: 700;
-}
-
-.cardTitle {
-  font-size: 10px;
-  color: #5a3a1a;
-  letter-spacing: 0.06em;
-  font-family: 'Courier New', monospace;
-  margin-top: 2px;
-}
-
-.cardSlotFocused .cardTitle {
-  color: #2a1408;
-}
-
-/* ── Selected info bar ──────────────────────────────────────────────────────── */
-.selectedInfo {
-  margin-top: auto;
-  padding-top: 20px;
-  padding: 14px 16px;
-  background: rgba(50, 25, 5, 0.12);
-  border-radius: 6px;
-  border-left: 2.5px solid rgba(232, 192, 69, 0.6);
-  display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 16px;
-  position: relative;
-  z-index: 1;
-  min-height: 52px;
-}
-
-.selectedDesc {
-  font-size: 11px;
-  color: #3a2208;
   line-height: 1.65;
-  font-family: 'Courier New', monospace;
-  flex: 1;
+  max-width: 380px;
+  min-height: 44px;
 }
 
-.selectCta {
+.stackCue {
+  font-family: 'Montserrat', sans-serif;
   font-size: 10px;
-  color: rgba(80, 40, 5, 0.45);
-  white-space: nowrap;
-  align-self: center;
-  letter-spacing: 0.04em;
-  font-family: 'Courier New', monospace;
-}
-
-/* ── Folder footer ──────────────────────────────────────────────────────────── */
-.folderFooter {
-  margin-top: 28px;
-  padding-top: 14px;
-  border-top: 1px solid rgba(80, 40, 5, 0.18);
-  display: flex;
-  justify-content: flex-end;
-  position: relative;
-  z-index: 1;
-}
-
-.keyHint {
-  font-size: 9px;
-  letter-spacing: 0.12em;
-  color: rgba(80, 40, 5, 0.38);
+  font-weight: 500;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-  font-family: 'Courier New', monospace;
+  color: rgba(255,255,255,0.32);
 }
 
-/* ── Page footer ────────────────────────────────────────────────────────────── */
-.footer {
-  padding: 0 48px 24px;
+/* ══════════════════════════════════════════════════════
+   CLOSED NOTEBOOK
+══════════════════════════════════════════════════════ */
+.closedBook {
+  display: flex;
+  flex-direction: row;
+  width: 152px;
+  height: 208px;
+  position: relative;
+  filter: drop-shadow(0 8px 28px rgba(0,0,0,0.38));
+  transition: filter 0.24s ease;
+  user-select: none;
+  border-radius: 3px 5px 5px 3px;
+}
+
+.closedBookFocused {
+  filter: drop-shadow(0 18px 44px rgba(0,0,0,0.50));
+}
+
+/* Spine */
+.cbSpine {
+  width: 14px;
+  height: 100%;
+  background-color: var(--spine);
+  border-radius: 3px 0 0 3px;
+  flex-shrink: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent 0px, transparent 5px,
+    rgba(255,255,255,0.03) 5px, rgba(255,255,255,0.03) 6px
+  );
+}
+
+/* Cover */
+.cbCover {
+  flex: 1;
+  height: 100%;
+  background-color: var(--cover);
+  border-radius: 0 5px 5px 0;
+  position: relative;
+  overflow: hidden;
   display: flex;
   align-items: flex-end;
-  justify-content: space-between;
-  max-width: 1160px;
-  width: 100%;
-  margin: 0 auto;
+  padding: 13px 11px;
 }
 
-.footerBrand {
+/* Cloth weave texture */
+.cbCloth {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    repeating-linear-gradient(
+      0deg,
+      transparent 0px, transparent 3px,
+      rgba(0,0,0,0.042) 3px, rgba(0,0,0,0.042) 4px
+    ),
+    repeating-linear-gradient(
+      90deg,
+      transparent 0px, transparent 3px,
+      rgba(255,255,255,0.022) 3px, rgba(255,255,255,0.022) 4px
+    );
+}
+
+/* Embossed title near bottom */
+.cbTitle {
+  font-family: 'Bebas Neue', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  position: relative;
+  z-index: 1;
+  color: transparent;
+  text-shadow:
+    0 1px 0 rgba(255,255,255,0.11),
+    0 -1px 0 rgba(0,0,0,0.38);
+  -webkit-text-stroke: 0.5px rgba(0,0,0,0.24);
+}
+
+/* Page edges (right side of book) */
+.cbPageEdge {
+  position: absolute;
+  right: -9px;
+  top: 3px;
+  bottom: 3px;
+  width: 10px;
+  border-radius: 0 3px 3px 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    #ede8e0 0px, #ede8e0 1px,
+    #ddd8d0 1px, #ddd8d0 2px
+  );
+  box-shadow: 2px 0 5px rgba(0,0,0,0.12);
+}
+
+/* Divider tabs (right edge, shown on focus) */
+.cbTabs {
+  position: absolute;
+  right: -22px;
+  top: 18px;
   display: flex;
   flex-direction: column;
+  gap: 3px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.22s ease;
 }
 
-.brandScript {
-  font-size: 20px;
-  font-weight: 800;
-  color: #2a1408;
-  font-family: Georgia, serif;
-  letter-spacing: -0.01em;
-  font-style: italic;
+.cbTabsOn {
+  opacity: 1;
 }
 
-.footerContents {
-  font-size: 8px;
-  letter-spacing: 0.2em;
-  color: #8a6a3a;
+.cbTab {
+  width: 22px;
+  height: 28px;
+  background: rgba(237,232,224,0.92);
+  border-radius: 0 3px 3px 0;
+  border-left: 1.5px solid rgba(0,0,0,0.07);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.cbTab span {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 6.5px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
   text-transform: uppercase;
-  font-family: 'Courier New', monospace;
-  text-align: right;
-  line-height: 1.6;
+  color: #555;
+  writing-mode: vertical-rl;
+  transform: rotate(180deg);
 }
